@@ -10,7 +10,7 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import {
-    Avatar,
+  Avatar,
   Breadcrumb,
   Button,
   Divider,
@@ -90,7 +90,7 @@ const App: React.FC = () => {
     <div>
       <p>Content</p>
       <p>Content</p>
-      <Divider/>
+      <Divider />
       <p>Content</p>
     </div>
   );
@@ -163,7 +163,6 @@ const App: React.FC = () => {
           style={{
             margin: "0 16px",
             overflow: "auto",
-            height: `calc(95vh - 64px)`,
           }}
         >
           <Breadcrumb
@@ -182,15 +181,6 @@ const App: React.FC = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            {/* <p>long content</p>
-            {
-              Array.from({ length: 100 }, (_, index) => (
-                <React.Fragment key={index}>
-                  {index % 20 === 0 && index ? "more" : "..."}
-                  <br />
-                </React.Fragment>
-              ))
-            } */}
             <Routers />
           </div>
         </Content>
