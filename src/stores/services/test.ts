@@ -1,10 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import environment from "../../utrails/environment.ts";
 // import { GetCookie } from "../../utrails/cokie/set.ts";
-console.log(
-  "environment.VITE_APP_API_LOCAL_PATH",
-  environment.VITE_APP_API_LOCAL_PATH
-);
 
 export const testApi = createApi({
   reducerPath: "test",
