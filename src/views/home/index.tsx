@@ -1,4 +1,6 @@
 // import { useEffect } from "react";
+import Card_Content from "../../components/Card/card_content";
+// import Loading_component from "../../components/loading";
 import { useGetTestQuery } from "../../stores/services/test";
 
 const Home = () => {
@@ -8,20 +10,16 @@ const Home = () => {
     error: testError,
   } = useGetTestQuery({});
 
-  //   console.log("testData", testData);
-  console.log("testDataLoading", testDataLoading);
-  console.log("testError", testError);
-
-  //   useEffect(() => {}, [testData]);
+  // useEffect(() => {}, [testData]);
 
   return (
-    <div>
+    <Card_Content loading={testDataLoading} error={testError}>
       Home
       {testData &&
         testData.map((item: any, i: number) => {
           return <div key={i}>{item.id}</div>;
         })}
-    </div>
+    </Card_Content>
   );
 };
 
