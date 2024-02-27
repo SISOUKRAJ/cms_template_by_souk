@@ -1,26 +1,13 @@
 import { Button, FloatButton, Result, notification } from "antd";
-import Loading_component from "../loading";
+import Loading_component from "../../loading";
+import { CheckErrorResponse } from "../../../middlewares/api_error_respone";
 
 const Card_Content = ({ children, loading, error }: any) => {
   const [api, contextHolder] = notification.useNotification();
-  // console.log(error);
-
-  if (error) {
-    if ("status" in error) {
-      if (error.status === 401) {
-        // RemoveCookie("access_token");
-        // navigate("/auth-sign-in");
-        api.error({
-          message: `Notification`,
-          description: "Failed, Please Try Again Later",
-          placement: "topRight",
-        });
-      }
-    }
-  }
-
+  CheckErrorResponse(error, api);
   return (
-    <div style={{ minHeight: "83vh" }}>
+    <div>
+      <FloatButton.BackTop />
       {contextHolder}
       {error ? (
         <>
@@ -33,8 +20,6 @@ const Card_Content = ({ children, loading, error }: any) => {
       ) : (
         <>{loading ? <Loading_component /> : children}</>
       )}
-
-      <FloatButton.BackTop />
     </div>
   );
 };
