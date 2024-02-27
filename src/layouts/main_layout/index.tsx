@@ -102,8 +102,8 @@ const App: React.FC = () => {
         collapsible
         collapsed={collapsed}
         style={{
-          overflow: "auto",
           height: "100vh",
+          overflow: "auto",
           position: "fixed",
           left: 0,
           top: 0,
@@ -127,7 +127,16 @@ const App: React.FC = () => {
         />
       </Sider>
       <Layout style={collapsed ? { marginLeft: 80 } : { marginLeft: 200 }}>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+            position: "fixed",
+            width: `calc(100% - ${collapsed ? "80px" : "200px"} )`,
+            top: 0,
+            zIndex: 1000,
+          }}
+        >
           <Flex justify="space-between" align="center">
             <Button
               type="text"
@@ -161,7 +170,7 @@ const App: React.FC = () => {
         </Header>
         <Content
           style={{
-            margin: "0 16px",
+            margin: "65px 16px",
             overflow: "auto",
           }}
         >
@@ -179,12 +188,21 @@ const App: React.FC = () => {
               textAlign: "center",
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
+              minHeight: "calc(100vh - 185px)",
             }}
           >
             <Routers />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
+        <Footer
+          style={{
+            textAlign: "center",
+            position: "fixed",
+            width: `calc(100% - ${collapsed ? "80px" : "200px"} )`,
+            bottom: 0,
+            // zIndex: 100,
+          }}
+        >
           Ant Design ©{new Date().getFullYear()} Created by Ant UED
         </Footer>
       </Layout>
